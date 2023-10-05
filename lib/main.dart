@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/HomePage.dart';
+import 'package:untitled/Screens/HomePage.dart';
 
 void main()
 {
@@ -12,6 +12,10 @@ class untitled extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+      ),
     );
   }
 }
