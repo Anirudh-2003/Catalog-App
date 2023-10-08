@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 1));
     var json = await rootBundle.loadString("Assests/Files/catalog.json");
     final decodeData = jsonDecode(json);
     var productsData = decodeData["products"];
