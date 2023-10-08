@@ -14,7 +14,9 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.cremeColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -24,12 +26,13 @@ class HomeDetailPage extends StatelessWidget {
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all(StadiumBorder()),
-                    backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluishColor)),
-                child: "Buy".text.xl2.make()).wh(100, 58)
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(StadiumBorder()),
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor)),
+                    child: "Add To Cart".text.xl2.make())
+                .wh(165, 58)
           ],
         ).p32(),
       ),
@@ -60,6 +63,11 @@ class HomeDetailPage extends StatelessWidget {
                                 .xl
                                 .make(),
                             10.heightBox,
+                            "magna fringilla urna porttitor rhoncus dolor purus non enim praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel"
+                                .text
+                                .textStyle(context.captionStyle)
+                                .make()
+                                .p16(),
                           ],
                         ).py64(),
                       )))

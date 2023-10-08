@@ -3,6 +3,7 @@ import 'package:untitled/Screens/HomePage.dart';
 import 'package:untitled/Screens/LoginPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/widgets/themes.dart';
+import 'Screens/Cart_Page.dart';
 import 'Utils/Route.dart';
 
 void main()
@@ -23,6 +24,7 @@ class untitled extends StatelessWidget {
       routes: {
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }
