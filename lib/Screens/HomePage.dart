@@ -14,34 +14,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   void initState() {
-      super.initState();
-      loadData();
+    super.initState();
+    loadData();
   }
 
-  loadData() async
-  {
+  loadData() async {
     var json = await rootBundle.loadString("Assests/Files/catalog.json");
     final decodeData = jsonDecode(json);
     var productsData = decodeData["products"];
+    List<Item> list = CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate((50), (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: ListView.builder(
-          itemCount:  dummyList.length,
-          itemBuilder: (context,index)  {
-            return ItemWidget(item: dummyList[index]);
-          },
-        ),
+        padding: const EdgeInsets.all(16.0),
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) {
+                  return ItemWidget(item: CatalogModel.items[index]);
+                },
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: MyDrawer(),
     );
